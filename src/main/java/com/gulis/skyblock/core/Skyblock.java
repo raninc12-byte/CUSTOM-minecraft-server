@@ -8,8 +8,14 @@ import com.gulis.skyblock.economy.EconomyCommand;
 import com.gulis.skyblock.economy.EconomyManager;
 import com.gulis.skyblock.gui.GUIListener;
 import com.gulis.skyblock.gui.GUIManager;
+import com.gulis.skyblock.hub.HubManager;
 import com.gulis.skyblock.island.IslandCommand;
 import com.gulis.skyblock.island.IslandManager;
+import com.gulis.skyblock.island.OneBlockCommand;
+import com.gulis.skyblock.island.OneBlockListener;
+import com.gulis.skyblock.island.OneBlockManager;
+import com.gulis.skyblock.menu.JoinListener;
+import com.gulis.skyblock.menu.MenuCommand;
 import com.gulis.skyblock.shop.ShopCommand;
 import com.gulis.skyblock.shop.ShopManager;
 import org.bukkit.Bukkit;
@@ -31,6 +37,8 @@ public class Skyblock extends JavaPlugin {
     private EconomyManager economyManager;
     private ShopManager shopManager;
     private IslandManager islandManager;
+    private OneBlockManager oneBlockManager;
+    private HubManager hubManager;
     private GUIManager guiManager;
 
     @Override
@@ -59,9 +67,19 @@ public class Skyblock extends JavaPlugin {
         this.islandManager = new IslandManager(this);
         islandManager.loadIslands();
 
+        this.oneBlockManager = new OneBlockManager(this);
+
+        // --- Hub world ---
+        this.hubManager = new HubManager(this);
+        hubManager.loadHub();
+
         // --- GUI framework ---
         this.guiManager = new GUIManager();
         Bukkit.getPluginManager().registerEvents(new GUIListener(guiManager), this);
+
+        // --- Listeners ---
+        Bukkit.getPluginManager().registerEvents(new JoinListener(this), this);
+        Bukkit.getPluginManager().registerEvents(new OneBlockListener(this), this);
 
         // --- Commands ---
         getCommand("island").setExecutor(new IslandCommand(this));
@@ -69,6 +87,9 @@ public class Skyblock extends JavaPlugin {
         getCommand("admin").setExecutor(new AdminCommand(this));
         getCommand("balance").setExecutor(new EconomyCommand(this));
         getCommand("pay").setExecutor(new EconomyCommand(this));
+        getCommand("menu").setExecutor(new MenuCommand(this));
+        getCommand("hub").setExecutor(new MenuCommand(this));
+        getCommand("oneblock").setExecutor(new OneBlockCommand(this));
 
         // Buy/Sell/SellAll are handled by ShopCommand too (shared logic)
         ShopCommand shopCommand = new ShopCommand(this);
@@ -122,5 +143,13 @@ public class Skyblock extends JavaPlugin {
 
     public GUIManager getGuiManager() {
         return guiManager;
+    }
+
+    public OneBlockManager getOneBlockManager() {
+        return oneBlockManager;
+    }
+
+    public HubManager getHubManager() {
+        return hubManager;
     }
 }

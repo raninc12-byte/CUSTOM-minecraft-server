@@ -22,8 +22,28 @@ island:
   # World border size per island (in blocks)
   border-size: 200
 
+oneblock:
+  # Grid spacing between OneBlocks (kept large so they don't overlap islands)
+  grid-spacing: 512
+  # Y level where the OneBlock magic block is placed
+  start-y: 100
+  # Blocks per phase (mining this many advances to the next phase)
+  blocks-per-phase: 200
+
+hub:
+  # Name of the hub world
+  world: "hub"
+  # Spawn coordinates in the hub
+  spawn:
+    x: 0
+    y: 100
+    z: 0
+
 admin:
-  # Whether the admin panel can be opened by ops
+  # Username allowed to see and click the admin button in the main menu.
+  # Only this player can open the admin panel from the menu GUI.
+  owner-username: "gladgulis1972"
+  # Whether the admin panel can be opened by ops via /admin
   enabled: true
   # Cooldown (in seconds) between /admin panel opens
   cooldown: 0

@@ -12,6 +12,11 @@ commands:
     aliases: [is]
     usage: /is [help|create|home|invite|accept|leave|level|top|settings]
     permission: skyblock.island
+  oneblock:
+    description: OneBlock game mode command
+    aliases: [ob]
+    usage: /oneblock [start|home|phase|help]
+    permission: skyblock.oneblock
   shop:
     description: Opens the shop GUI
     usage: /shop
@@ -42,12 +47,21 @@ commands:
     aliases: [panel]
     usage: /admin
     permission: skyblock.admin
+  menu:
+    description: Opens the main menu
+    usage: /menu
+    permission: skyblock.menu
+  hub:
+    description: Teleport to the hub
+    usage: /hub
+    permission: skyblock.menu
 
 permissions:
   skyblock.*:
     description: Grants all Skyblock permissions
     children:
       skyblock.island: true
+      skyblock.oneblock: true
       skyblock.shop: true
       skyblock.shop.buy: true
       skyblock.shop.sell: true
@@ -55,9 +69,13 @@ permissions:
       skyblock.economy: true
       skyblock.economy.pay: true
       skyblock.admin: true
+      skyblock.menu: true
     default: op
   skyblock.island:
     description: Allows access to island commands
+    default: true
+  skyblock.oneblock:
+    description: Allows access to OneBlock commands
     default: true
   skyblock.shop:
     description: Allows opening the shop GUI
@@ -80,3 +98,6 @@ permissions:
   skyblock.admin:
     description: Allows access to the admin panel
     default: op
+  skyblock.menu:
+    description: Allows opening the main menu and using /hub
+    default: true

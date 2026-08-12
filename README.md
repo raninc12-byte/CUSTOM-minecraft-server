@@ -4,6 +4,10 @@ A custom Skyblock plugin for **Paper 1.20.6+** Minecraft servers, written in Jav
 
 ## Features
 
+- **Hub World** — Players spawn in a central hub with a decorative platform
+- **Main Menu** — Shown on join (right-click the compass); includes an admin button restricted to `gladgulis1972`
+- **Skyblock** — Trog-style islands: main island + 8 surrounding resource islands + floating mansion & sea temple
+- **OneBlock** — Single magic block that regenerates with random blocks across 6 phases
 - **Shop System** — `/shop` GUI with categories, pagination, and buy/sell/sellall
 - **Island System** — `/is create|home|invite|accept|leave|level|top|delete`
 - **Admin Panel** — `/admin` GUI with server info, player manager, world control, maintenance
@@ -19,8 +23,10 @@ src/main/java/com/gulis/skyblock/
 ├── gui/          # Abstract GUI base + listener + manager
 ├── economy/      # Balance management, /balance, /pay
 ├── shop/         # ShopManager, ShopGUI, /shop /buy /sell /sellall
-├── island/       # Island, IslandManager, IslandGenerator, /is
-└── admin/        # AdminGUI, PlayerManagerGUI, ServerControlGUI, /admin
+├── island/       # Island, IslandManager, IslandGenerator (Trog-style), OneBlock, /is, /oneblock
+├── admin/        # AdminGUI, PlayerManagerGUI, ServerControlGUI, /admin
+├── hub/          # HubManager (hub world + spawn platform)
+└── menu/         # MainMenuGUI, MenuCommand, JoinListener
 ```
 
 ## Build
@@ -49,7 +55,10 @@ The compiled jar is at `build/libs/SkyblockPlugin-1.0.0.jar` (a fat jar with bun
 
 | Command | Description |
 |---------|-------------|
+| `/menu` | Open the main menu GUI |
+| `/hub` | Teleport to the hub spawn |
 | `/is` `/island` | Main island command |
+| `/oneblock` `/ob` | OneBlock game mode (start/home/phase) |
 | `/shop` | Open the shop GUI |
 | `/buy <item> [amount]` | Buy an item |
 | `/sell <item> [amount]` | Sell an item |
@@ -58,11 +67,15 @@ The compiled jar is at `build/libs/SkyblockPlugin-1.0.0.jar` (a fat jar with bun
 | `/pay <player> <amount>` | Pay another player |
 | `/admin` `/panel` | Open the admin panel (ops) |
 
+> **Note:** The admin button in the main menu GUI is only visible and usable by the username configured in `config.yml` (`admin.owner-username`, default `gladgulis1972`). Other players see a "Locked" barrier instead.
+
 ## Permissions
 
 | Permission | Default |
 |-----------|---------|
 | `skyblock.island` | true |
+| `skyblock.oneblock` | true |
+| `skyblock.menu` | true |
 | `skyblock.shop` | true |
 | `skyblock.shop.buy` | true |
 | `skyblock.shop.sell` | true |
@@ -74,7 +87,7 @@ The compiled jar is at `build/libs/SkyblockPlugin-1.0.0.jar` (a fat jar with bun
 
 ## Configuration
 
-- `config.yml` — economy starting balance, island world/spacing, admin settings
+- `config.yml` — economy, island world/spacing, OneBlock settings, hub spawn, admin owner username
 - `shops.yml` — shop categories and item prices
 - `messages.yml` — player-facing messages
 
