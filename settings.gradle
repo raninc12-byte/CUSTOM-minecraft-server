@@ -1,0 +1,13 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+    }
+}
+
+// Allow Gradle to auto-download the required JDK toolchain if it is not
+// installed locally (e.g. Java 17 when only Java 21 is present).
+plugins {
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.8.0'
+}
+
+rootProject.name = 'SkyblockPlugin'

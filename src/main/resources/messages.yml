@@ -1,0 +1,49 @@
+# =====================================================
+# Skyblock Plugin - Messages
+# =====================================================
+#
+# Color codes use '&' (e.g. '&a' for green, '&c' for red).
+# Placeholders use {name} syntax.
+#
+
+prefix: "&8[&6Skyblock&8] "
+
+economy:
+  balance-self: "&aYour balance: &e{balance}"
+  balance-other: "&a{player}'s balance: &e{balance}"
+  paid: "&aPaid &e{amount} &ato {player}."
+  received: "&aYou received &e{amount} &afrom {player}."
+  insufficient: "&cYou do not have enough money."
+  invalid-amount: "&cInvalid amount."
+
+shop:
+  opened: "&aOpened the shop."
+  bought: "&aBought &e{amount}x {item} &afor &e{total}&a."
+  sold: "&aSold &e{amount}x {item} &afor &e{total}&a."
+  sold-all: "&aSold &e{count} items &afor &e{total}&a."
+  not-buyable: "&cThis item cannot be bought."
+  not-sellable: "&cThis item cannot be sold."
+  full-inventory: "&cYour inventory is full."
+
+island:
+  created: "&aWelcome to your new island!"
+  teleported-home: "&aTeleported to your island."
+  already-has-island: "&cYou already have an island."
+  no-island: "&cYou do not have an island. Use /is create to make one."
+  invite-sent: "&aInvite sent to {player}."
+  invite-received: "&a{player} invited you to their island. Use /is accept {player}."
+  joined: "&aYou joined {player}'s island."
+  left: "&aYou left the island."
+  level: "&aYour island level: &e{level}"
+  deleted: "&aYour island has been deleted."
+
+admin:
+  worlds-saved: "&aAll worlds saved."
+  config-reloaded: "&aConfiguration reloaded."
+  whitelist-toggled: "&aWhitelist is now {state}."
+  restart-scheduled: "&cServer restarting in 10 seconds..."
+
+errors:
+  no-permission: "&cYou do not have permission to do that."
+  player-not-found: "&cPlayer not found: {player}"
+  invalid-args: "&cInvalid arguments."

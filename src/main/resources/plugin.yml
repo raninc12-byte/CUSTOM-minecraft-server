@@ -1,0 +1,82 @@
+name: Skyblock
+version: '${version}'
+main: com.gulis.skyblock.core.Skyblock
+api-version: '1.20'
+author: gulis
+description: Custom Skyblock plugin with shop GUIs and admin management panel.
+website: https://github.com/gulis/skyblock-plugin
+
+commands:
+  island:
+    description: Main island command
+    aliases: [is]
+    usage: /is [help|create|home|invite|accept|leave|level|top|settings]
+    permission: skyblock.island
+  shop:
+    description: Opens the shop GUI
+    usage: /shop
+    permission: skyblock.shop
+  buy:
+    description: Buy an item from the shop
+    usage: /buy <item> [amount]
+    permission: skyblock.shop.buy
+  sell:
+    description: Sell an item to the shop
+    usage: /sell <item> [amount]
+    permission: skyblock.shop.sell
+  sellall:
+    description: Sell all sellable items in your inventory
+    usage: /sellall
+    permission: skyblock.shop.sellall
+  balance:
+    description: Check your balance
+    aliases: [bal, money]
+    usage: /balance [player]
+    permission: skyblock.economy
+  pay:
+    description: Pay another player
+    usage: /pay <player> <amount>
+    permission: skyblock.economy.pay
+  admin:
+    description: Opens the admin management panel
+    aliases: [panel]
+    usage: /admin
+    permission: skyblock.admin
+
+permissions:
+  skyblock.*:
+    description: Grants all Skyblock permissions
+    children:
+      skyblock.island: true
+      skyblock.shop: true
+      skyblock.shop.buy: true
+      skyblock.shop.sell: true
+      skyblock.shop.sellall: true
+      skyblock.economy: true
+      skyblock.economy.pay: true
+      skyblock.admin: true
+    default: op
+  skyblock.island:
+    description: Allows access to island commands
+    default: true
+  skyblock.shop:
+    description: Allows opening the shop GUI
+    default: true
+  skyblock.shop.buy:
+    description: Allows buying items
+    default: true
+  skyblock.shop.sell:
+    description: Allows selling items
+    default: true
+  skyblock.shop.sellall:
+    description: Allows selling all items at once
+    default: true
+  skyblock.economy:
+    description: Allows checking balance
+    default: true
+  skyblock.economy.pay:
+    description: Allows paying other players
+    default: true
+  skyblock.admin:
+    description: Allows access to the admin panel
+    default: op
