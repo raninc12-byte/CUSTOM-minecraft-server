@@ -48,6 +48,10 @@ tasks.withType(JavaCompile) {
 
 processResources {
     filteringCharset = 'UTF-8'
-    // Expand version in plugin.yml
-    expand(version: project.version)
+    // Only expand the version placeholder in plugin.yml; other resource
+    // files (config.yml, shops.yml) contain '$' symbols that would break
+    // Groovy template parsing.
+    filesMatching('plugin.yml') {
+        expand(version: project.version)
+    }
 }

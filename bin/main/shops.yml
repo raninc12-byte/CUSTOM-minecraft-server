@@ -1,0 +1,271 @@
+# =====================================================
+# Skyblock Plugin - Shop Configuration
+# =====================================================
+#
+# Each category has:
+#   icon:   Material shown in the category selector GUI
+#   name:   Display name (color codes supported via '&')
+#   items:  Map of Material -> { buy, sell, name }
+#
+# A buy or sell price of -1 (or missing) means the action is disabled.
+# Materials must be valid Bukkit Material enum names (e.g. STONE, OAK_LOG).
+#
+
+categories:
+  blocks:
+    icon: GRASS_BLOCK
+    name: "&aBuilding Blocks"
+    items:
+      STONE:
+        buy: 10.0
+        sell: 2.0
+        name: "&7Stone"
+      COBBLESTONE:
+        buy: 5.0
+        sell: 1.0
+        name: "&7Cobblestone"
+      OAK_LOG:
+        buy: 15.0
+        sell: 3.5
+        name: "&6Oak Log"
+      SPRUCE_LOG:
+        buy: 15.0
+        sell: 3.5
+        name: "&6Spruce Log"
+      OAK_PLANKS:
+        buy: 5.0
+        sell: 1.0
+        name: "&fOak Planks"
+      DIRT:
+        buy: 2.0
+        sell: 0.5
+        name: "&7Dirt"
+      GRASS_BLOCK:
+        buy: 5.0
+        sell: 1.0
+        name: "&aGrass Block"
+      SAND:
+        buy: 8.0
+        sell: 2.0
+        name: "&eSand"
+      GRAVEL:
+        buy: 12.0
+        sell: 3.0
+        name: "&7Gravel"
+      GLASS:
+        buy: 8.0
+        sell: 2.0
+        name: "&fGlass"
+
+  farming:
+    icon: WHEAT
+    name: "&eFarming"
+    items:
+      WHEAT:
+        buy: 5.0
+        sell: 1.0
+        name: "&eWheat"
+      CARROT:
+        buy: 5.0
+        sell: 1.0
+        name: "&6Carrot"
+      POTATO:
+        buy: 5.0
+        sell: 1.0
+        name: "&6Potato"
+      BEETROOT:
+        buy: 5.0
+        sell: 1.0
+        name: "&cBeetroot"
+      MELON:
+        buy: 8.0
+        sell: 2.0
+        name: "&aMelon"
+      PUMPKIN:
+        buy: 12.0
+        sell: 3.0
+        name: "&6Pumpkin"
+      SUGAR_CANE:
+        buy: 6.0
+        sell: 1.5
+        name: "&aSugar Cane"
+      CACTUS:
+        buy: 6.0
+        sell: 1.5
+        name: "&aCactus"
+      OAK_SAPLING:
+        buy: 10.0
+        sell: 2.0
+        name: "&aOak Sapling"
+      BONE_MEAL:
+        buy: 5.0
+        sell: 1.0
+        name: "&fBone Meal"
+
+  mobdrops:
+    icon: ROTTEN_FLESH
+    name: "&cMob Drops"
+    items:
+      ROTTEN_FLESH:
+        buy: 2.0
+        sell: 0.5
+        name: "&cRotten Flesh"
+      BONE:
+        buy: 8.0
+        sell: 2.0
+        name: "&fBone"
+      STRING:
+        buy: 12.0
+        sell: 3.0
+        name: "&fString"
+      SPIDER_EYE:
+        buy: 15.0
+        sell: 4.0
+        name: "&cSpider Eye"
+      ENDER_PEARL:
+        buy: 100.0
+        sell: -1.0
+        name: "&5Ender Pearl"
+      BLAZE_ROD:
+        buy: 150.0
+        sell: 40.0
+        name: "&6Blaze Rod"
+      GHAST_TEAR:
+        buy: 200.0
+        sell: 50.0
+        name: "&fGhast Tear"
+      SLIME_BALL:
+        buy: 25.0
+        sell: 6.0
+        name: "&aSlime Ball"
+      GUNPOWDER:
+        buy: 30.0
+        sell: 7.0
+        name: "&7Gunpowder"
+
+  redstone:
+    icon: REDSTONE
+    name: "&cRedstone"
+    items:
+      REDSTONE:
+        buy: 8.0
+        sell: 2.0
+        name: "&cRedstone"
+      IRON_INGOT:
+        buy: 50.0
+        sell: 12.0
+        name: "&fIron Ingot"
+      GOLD_INGOT:
+        buy: 80.0
+        sell: 20.0
+        name: "&6Gold Ingot"
+      DIAMOND:
+        buy: 500.0
+        sell: 125.0
+        name: "&bDiamond"
+      EMERALD:
+        buy: 400.0
+        sell: 100.0
+        name: "&aEmerald"
+      COAL:
+        buy: 20.0
+        sell: 5.0
+        name: "&0Coal"
+      LAPIS_LAZULI:
+        buy: 15.0
+        sell: 3.0
+        name: "&9Lapis Lazuli"
+      REDSTONE_TORCH:
+        buy: 10.0
+        sell: 2.0
+        name: "&cRedstone Torch"
+      PISTON:
+        buy: 40.0
+        sell: 10.0
+        name: "&7Piston"
+      HOPPER:
+        buy: 75.0
+        sell: 18.0
+        name: "&7Hopper"
+
+  brewing:
+    icon: BREWING_STAND
+    name: "&5Brewing"
+    items:
+      NETHER_STALK:
+        buy: 30.0
+        sell: 7.0
+        name: "&cNether Wart"
+      BLAZE_POWDER:
+        buy: 25.0
+        sell: 6.0
+        name: "&6Blaze Powder"
+      GLASS_BOTTLE:
+        buy: 5.0
+        sell: 1.0
+        name: "&fGlass Bottle"
+      FERMENTED_SPIDER_EYE:
+        buy: 50.0
+        sell: 12.0
+        name: "&cFermented Spider Eye"
+      GLOWSTONE_DUST:
+        buy: 20.0
+        sell: 5.0
+        name: "&eGlowstone Dust"
+      MAGMA_CREAM:
+        buy: 40.0
+        sell: 10.0
+        name: "&6Magma Cream"
+      SUGAR:
+        buy: 8.0
+        sell: 2.0
+        name: "&fSugar"
+      RABBIT_FOOT:
+        buy: 60.0
+        sell: 15.0
+        name: "&fRabbit Foot"
+
+  misc:
+    icon: CHEST
+    name: "&7Miscellaneous"
+    items:
+      ARROW:
+        buy: 5.0
+        sell: 1.0
+        name: "&fArrow"
+      IRON_SWORD:
+        buy: 200.0
+        sell: -1.0
+        name: "&fIron Sword"
+      DIAMOND_SWORD:
+        buy: 1500.0
+        sell: -1.0
+        name: "&bDiamond Sword"
+      BOW:
+        buy: 100.0
+        sell: -1.0
+        name: "&6Bow"
+      IRON_PICKAXE:
+        buy: 150.0
+        sell: -1.0
+        name: "&fIron Pickaxe"
+      DIAMOND_PICKAXE:
+        buy: 1000.0
+        sell: -1.0
+        name: "&bDiamond Pickaxe"
+      BREAD:
+        buy: 5.0
+        sell: 1.0
+        name: "&6Bread"
+      COOKED_BEEF:
+        buy: 8.0
+        sell: 2.0
+        name: "&cCooked Beef"
+      GOLDEN_APPLE:
+        buy: 500.0
+        sell: -1.0
+        name: "&6Golden Apple"
+      ENCHANTED_GOLDEN_APPLE:
+        buy: 5000.0
+        sell: -1.0
+        name: "&6Enchanted Golden Apple"

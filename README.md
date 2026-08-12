@@ -1,6 +1,6 @@
 # Skyblock Plugin
 
-A custom Skyblock plugin for **Paper 1.20+** Minecraft servers, written in Java 17.
+A custom Skyblock plugin for **Paper 1.20.6+** Minecraft servers, written in Java 21.
 
 ## Features
 
@@ -25,7 +25,7 @@ src/main/java/com/gulis/skyblock/
 
 ## Build
 
-Requires JDK 17 and Gradle (the wrapper is included).
+Requires JDK 21 and Gradle (the wrapper is included).
 
 ```bash
 # Linux / macOS
@@ -35,12 +35,12 @@ Requires JDK 17 and Gradle (the wrapper is included).
 gradlew.bat build
 ```
 
-The compiled jar is at `build/libs/Skyblock-1.0.0.jar` (a fat jar with bundled dependencies).
+The compiled jar is at `build/libs/SkyblockPlugin-1.0.0.jar` (a fat jar with bundled SQLite and HikariCP dependencies).
 
 ## Install
 
 1. Download Paper 1.20.6 from <https://papermc.io/downloads/paper>
-2. Copy `Skyblock-1.0.0.jar` into your server's `plugins/` folder
+2. Copy `SkyblockPlugin-1.0.0.jar` into your server's `plugins/` folder
 3. Start the server once to generate the default config files
 4. Edit `plugins/Skyblock/config.yml`, `shops.yml`, `messages.yml` as needed
 5. Restart the server

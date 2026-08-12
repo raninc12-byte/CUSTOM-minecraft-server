@@ -1,0 +1,35 @@
+# =====================================================
+# Skyblock Plugin - Main Configuration
+# =====================================================
+
+economy:
+  # Starting balance for new players
+  starting-balance: 100.0
+  # Currency symbol used in /balance and shop displays
+  currency-symbol: "$"
+  # Number of decimal places to display
+  decimals: 2
+
+island:
+  # Name of the void world used for islands
+  world: "skyblock_world"
+  # Grid spacing between islands (in blocks)
+  grid-spacing: 256
+  # Y level where islands are generated
+  start-y: 100
+  # Maximum number of members per island (besides the owner)
+  max-members: 5
+  # World border size per island (in blocks)
+  border-size: 200
+
+admin:
+  # Whether the admin panel can be opened by ops
+  enabled: true
+  # Cooldown (in seconds) between /admin panel opens
+  cooldown: 0
+
+messages:
+  prefix: "&8[&6Skyblock&8] "
+  no-permission: "&cYou do not have permission to do that."
+  player-not-found: "&cPlayer not found: {player}"
+  reload-complete: "&aConfiguration reloaded."
