@@ -192,7 +192,7 @@ categories:
     icon: BREWING_STAND
     name: "&5Brewing"
     items:
-      NETHER_STALK:
+      NETHER_WART:
         buy: 30.0
         sell: 7.0
         name: "&cNether Wart"

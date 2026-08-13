@@ -41,8 +41,8 @@ categories:
         sell: 0.5
         name: "&7Dirt"
       GRASS_BLOCK:
-        buy: 50.0
-        sell: 5.0
+        buy: 5.0
+        sell: 1.0
         name: "&aGrass Block"
       SAND:
         buy: 8.0
@@ -53,7 +53,7 @@ categories:
         sell: 3.0
         name: "&7Gravel"
       GLASS:
-        buy: 80.0
+        buy: 8.0
         sell: 2.0
         name: "&fGlass"
 
@@ -192,7 +192,7 @@ categories:
     icon: BREWING_STAND
     name: "&5Brewing"
     items:
-      NETHER_STALK:
+      NETHER_WART:
         buy: 30.0
         sell: 7.0
         name: "&cNether Wart"

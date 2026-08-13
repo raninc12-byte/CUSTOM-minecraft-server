@@ -1,0 +1,6 @@
+[07:51:02] [ServerMain/INFO]: [bootstrap] Running Java 26 (Java HotSpot(TM) 64-Bit Server VM 26.0.2+10-55; Oracle Corporation null) on Windows 11 10.0 (amd64)
+[07:51:02] [ServerMain/INFO]: [bootstrap] Loading Paper 26.2-112-main@c9e894d (2026-08-11T05:18:39Z) for Minecraft 26.2
+[07:51:02] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[07:51:02] [ServerMain/INFO]: [PluginInitializerManager] Initialized 0 plugins
+[07:51:12] [DataConverter MCTypeRegistry init thread/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Initialising converters for DataConverter...
+[07:51:12] [ServerMain/INFO]: You need to agree to the EULA in order to run the server. Go to eula.txt for more info.
