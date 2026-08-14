@@ -228,6 +228,10 @@ public class IslandManager {
         return islandsByOwner;
     }
 
+    public IslandGenerator getGenerator() {
+        return generator;
+    }
+
     /**
      * Custom chunk generator that produces an empty (void) world.
      */

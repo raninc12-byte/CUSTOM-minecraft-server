@@ -71,6 +71,8 @@ public class IslandCommand implements CommandExecutor, TabCompleter {
             case "delete":
             case "reset":
                 return handleDelete(player);
+            case "visit":
+                return handleVisit(player, args);
             case "help":
             default:
                 sendHelp(player);
@@ -212,6 +214,46 @@ public class IslandCommand implements CommandExecutor, TabCompleter {
         return true;
     }
 
+    private boolean handleVisit(Player player, String[] args) {
+        if (args.length < 2) {
+            player.sendMessage(ChatColor.RED + "Usage: /is visit <resource|nether|end|floating|scattered>");
+            return true;
+        }
+        Island island = plugin.getIslandManager().getIsland(player.getUniqueId());
+        if (island == null) {
+            player.sendMessage(ChatColor.RED + "You do not have an island. Use /is create first.");
+            return true;
+        }
+        Location center = island.getCenter();
+        String type = args[1].toLowerCase();
+        switch (type) {
+            case "resource":
+            case "resources":
+                plugin.getIslandManager().getGenerator().generateResourceIslands(center);
+                player.sendMessage(ChatColor.GREEN + "Generating resource islands... (sand, gravel, clay, soul sand, obsidian, ice, mycelium, red sand)");
+                return true;
+            case "nether":
+                plugin.getIslandManager().getGenerator().generateNetherIsland(center);
+                player.sendMessage(ChatColor.GREEN + "Generating nether island... (netherrack, quartz, gold, blaze spawner)");
+                return true;
+            case "end":
+                plugin.getIslandManager().getGenerator().generateEndIsland(center);
+                player.sendMessage(ChatColor.GREEN + "Generating end island... (end stone, purpur, chorus, bedrock gateway)");
+                return true;
+            case "floating":
+                plugin.getIslandManager().getGenerator().generateFloatingStructures(center);
+                player.sendMessage(ChatColor.GREEN + "Generating floating structures... (woodland mansion + ocean monument)");
+                return true;
+            case "scattered":
+                plugin.getIslandManager().getGenerator().generateScatteredStructures(center);
+                player.sendMessage(ChatColor.GREEN + "Generating scattered structures... (witch hut, buried treasure, ruined portal)");
+                return true;
+            default:
+                player.sendMessage(ChatColor.RED + "Unknown visit type. Use: resource, nether, end, floating, scattered");
+                return true;
+        }
+    }
+
     private void sendHelp(Player player) {
         player.sendMessage(ChatColor.GOLD + "=== Island Commands ===");
         player.sendMessage(ChatColor.YELLOW + "/is create" + ChatColor.GRAY + " - Create a new island");
@@ -222,16 +264,25 @@ public class IslandCommand implements CommandExecutor, TabCompleter {
         player.sendMessage(ChatColor.YELLOW + "/is level" + ChatColor.GRAY + " - Show your island level");
         player.sendMessage(ChatColor.YELLOW + "/is top" + ChatColor.GRAY + " - Island leaderboard");
         player.sendMessage(ChatColor.YELLOW + "/is delete" + ChatColor.GRAY + " - Delete your island");
+        player.sendMessage(ChatColor.YELLOW + "/is visit <type>" + ChatColor.GRAY + " - Generate island structures (resource|nether|end|floating|scattered)");
     }
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
         if (args.length == 1) {
             List<String> subs = Arrays.asList(
-                    "create", "home", "invite", "accept", "leave", "level", "top", "delete", "help");
+                    "create", "home", "invite", "accept", "leave", "level", "top", "delete", "visit", "help");
             List<String> result = new ArrayList<>();
             for (String s : subs) {
                 if (s.startsWith(args[0].toLowerCase())) result.add(s);
+            }
+            return result;
+        }
+        if (args.length == 2 && args[0].equalsIgnoreCase("visit")) {
+            List<String> types = Arrays.asList("resource", "nether", "end", "floating", "scattered");
+            List<String> result = new ArrayList<>();
+            for (String t : types) {
+                if (t.startsWith(args[1].toLowerCase())) result.add(t);
             }
             return result;
         }
